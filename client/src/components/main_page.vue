@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my-div">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>{{$route.params.userId}}  {{$route.params.name}}</span>
@@ -122,6 +122,10 @@
 </script>
 
 <style scoped>
+  .my-div{
+    display:inline-block;
+    text-align: center;
+  }
   .clearfix:before,
   .clearfix:after {
     display: table;
