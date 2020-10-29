@@ -41,7 +41,7 @@
     },
     methods: {
       onSubmit() {
-        axios.post('http://127.0.0.1:8086/login', this.user).then(res => {
+        axios.post('http://127.0.0.1:8086/test/login', this.user).then(res => {
           console.log(res);
           this.$message(res.data.status);
           if (res.data.status === 'success') {
