@@ -1,23 +1,25 @@
 package com.example.demo.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "course")
-public class Course {
+@Table(name = "role")
+public class Role {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "name")
     private String name;
-    @Column(name = "credit")
-    private Integer credit;
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        id = id;
     }
 
     public String getName() {
@@ -28,11 +30,11 @@ public class Course {
         this.name = name;
     }
 
-    public Integer getCredit() {
-        return credit;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setCredit(Integer credit) {
-        this.credit = credit;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
