@@ -89,6 +89,40 @@ public class TestController {
         }
         return temp;
     }
+
+    @RequestMapping(value = "/getAllUserChooseCourse", method = RequestMethod.GET)
+    public String getAllUserChooseCourse(@RequestParam(value = "course_like") String courseLike) {
+        List<String> userNames = courseRepository.findUserNameByCourseNameLike(courseLike);
+        String temp = "";
+        for (String s: userNames) {
+            temp = temp + s + " ";
+        }
+        return temp;
+    }
+
+    @RequestMapping(value = "/getAllCourse", method = RequestMethod.GET)
+    public String getAllCourse() {
+        List<Object[]> courses = courseArrangementRepository.findAllCourse();
+        String temp = "";
+        for (Object[] o: courses) {
+            for (Object t: o) {
+                temp = temp + t.toString() + " ";
+            }
+        }
+        return temp;
+    }
+
+    @RequestMapping(value = "/getAllScore", method = RequestMethod.GET)
+    public String getAllScore() {
+        List<Object[]> courses = courseClassRepository.findAllScore();
+        String temp = "";
+        for (Object[] o: courses) {
+            for (Object t: o) {
+                temp = temp + t.toString() + " ";
+            }
+        }
+        return temp;
+    }
 //    @RequestMapping(value = "/addCourse", method = RequestMethod.POST)
 //    public boolean addCourse(@RequestBody JSONObject classInfo) {
 //        int id = classInfo.getInteger("id");
