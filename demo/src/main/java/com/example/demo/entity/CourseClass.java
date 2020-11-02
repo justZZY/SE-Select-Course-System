@@ -3,16 +3,16 @@ package com.example.demo.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="course_class")
+@Table
 public class CourseClass {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "user_id")
-    private Integer user_id;
-    @Column(name = "course_id")
-    private Integer courseID;
-    @Column(name = "score")
+    @Column
+    private Integer userID;
+    @Column
+    private Integer courseArrangementID;
+    @Column
     private Integer score;
 
     public Integer getId() {
@@ -23,20 +23,20 @@ public class CourseClass {
         this.id = id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserID() {
+        return userID;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserID(Integer userID) {
+        this.userID = userID;
     }
 
-    public Integer getCourseID() {
-        return courseID;
+    public Integer getCourseArrangementID() {
+        return courseArrangementID;
     }
 
-    public void setCourseID(Integer courseID) {
-        this.courseID = courseID;
+    public void setCourseArrangementID(Integer courseArrangementID) {
+        this.courseArrangementID = courseArrangementID;
     }
 
     public Integer getScore() {

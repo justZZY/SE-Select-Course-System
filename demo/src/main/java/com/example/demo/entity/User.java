@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table
 public class User {
     @Id
     @TableGenerator(
@@ -14,13 +14,12 @@ public class User {
             allocationSize = 1 )
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "AppSeqStore")
     private Integer id;
-    @Column(name = "name")
+    @Column
     private String name;
-    @Column(name = "pwd")
+    @Column
     private String pwd;
     @ManyToMany
-    @JoinTable(name = "user_role",joinColumns = @JoinColumn(name="user_id",referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
+    @JoinTable
     private List<Role> roles;
 
     public Integer getId() {

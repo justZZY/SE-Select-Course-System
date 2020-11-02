@@ -3,13 +3,13 @@ package com.example.demo.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "course")
+@Table
 public class Course {
     @Id
     private Integer id;
-    @Column(name = "name")
+    @Column
     private String name;
-    @Column(name = "credit")
+    @Column
     private Integer credit;
 
     public Integer getId() {

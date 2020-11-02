@@ -3,18 +3,18 @@ package com.example.demo.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "course_arrangement")
+@Table
 public class CourseArrangement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "teacher_id")
+    @Column
     private Integer teacherID;
-    @Column(name = "course_id")
+    @Column
     private Integer courseID;
-    @Column(name = "time")
+    @Column
     private String time;
-    @Column(name = "semester")
+    @Column
     private String semester;
 
     public Integer getID() {
