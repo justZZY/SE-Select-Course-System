@@ -3,13 +3,11 @@ package com.example.demo.repository;
 import com.example.demo.entity.CourseClass;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
 public interface CourseClassRepository extends CrudRepository<CourseClass, Integer> {
-//    @Query(nativeQuery=true, value="select u.name, cc.score from user u, course_class cc, course_arrangement ca, course c where u,name=?1 and u.id=ca.teacher_id and c.name=?2 and c.id=cc.id and ca.id=c.id and ca.semester=?3")
-//    List<Object[]> findScoreByTeacherCourseSemester(String teacherName, String courseName, String semester);
-
-    @Query(nativeQuery=true, value="select u.name as uname, c.name as cname, ca.semester, cc.score from user u, course c, course_class cc, course_arrangement ca where u.id=cc.user_id and c.id=cc.course_id and ca.course_id=cc.course_id")
-    List<Object[]> findAllScore();
+    @Query("select cc.id, c.name, u.name, cc.score from Course c, CourseArrangement ca, CourseClass cc, User u where ca.id=cc.courseArrangementID and c.id=ca.courseID and ca.teacherID=u.id and cc.userID=:userID")
+    List<Object[]>getSelectCourse(@Param(value = "userID") int userID);
 }
